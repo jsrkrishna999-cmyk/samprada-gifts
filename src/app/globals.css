@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand palette */
+  --color-cream: #fff8f0;
+  --color-ivory: #fffdf6;
+  --color-maroon-50: #fbeef0;
+  --color-maroon-100: #f2ccd3;
+  --color-maroon-300: #b6516a;
+  --color-maroon-500: #7a1f38;
+  --color-maroon-600: #651a2e;
+  --color-maroon-700: #4f1424;
+  --color-maroon-900: #2f0b16;
+  --color-temple-red: #a3182e;
+  --color-temple-red-600: #8a1226;
+  --color-gold: #c9972f;
+  --color-gold-light: #e3c27a;
+  --color-gold-dark: #a5771f;
+  --color-sandalwood: #e0aa71;
+  --color-sandalwood-light: #f1d9b8;
+  --color-brown: #3a2418;
+  --color-brown-700: #2a1a11;
+
+  --shadow-soft: 0 10px 40px rgba(58, 36, 24, 0.1);
+  --shadow-lift: 0 20px 60px rgba(58, 36, 24, 0.16);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--color-cream);
+  --color-ivory: var(--color-ivory);
+
+  --color-maroon-50: var(--color-maroon-50);
+  --color-maroon-100: var(--color-maroon-100);
+  --color-maroon-300: var(--color-maroon-300);
+  --color-maroon-500: var(--color-maroon-500);
+  --color-maroon-600: var(--color-maroon-600);
+  --color-maroon-700: var(--color-maroon-700);
+  --color-maroon-900: var(--color-maroon-900);
+
+  --color-temple-red: var(--color-temple-red);
+  --color-temple-red-600: var(--color-temple-red-600);
+
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+
+  --color-sandalwood: var(--color-sandalwood);
+  --color-sandalwood-light: var(--color-sandalwood-light);
+
+  --color-brown: var(--color-brown);
+  --color-brown-700: var(--color-brown-700);
+
+  --font-serif: var(--font-heading), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-body), Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--color-sandalwood-light);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-brown-700);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-brown-700);
+}
+
+/* Keyboard-accessible focus ring — visible only for keyboard navigation,
+   not on mouse/touch clicks, so it doesn't clutter the visual design. */
+:focus-visible {
+  outline: 2px solid var(--color-maroon-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Slim, elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sandalwood);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* Ambient decorative animations */
+@keyframes float-petal {
+  0% {
+    transform: translateY(-10%) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110vh) translateX(40px) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lamp-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: blur(18px);
+  }
+  50% {
+    opacity: 0.9;
+    filter: blur(24px);
+  }
+}
+
+.animate-float-petal {
+  animation-name: float-petal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animate-lamp-glow {
+  animation: lamp-glow 3.4s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 253, 246, 0.72);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.glass-dark {
+  background: rgba(47, 11, 22, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.text-balance {
+  text-wrap: balance;
 }
