@@ -7,11 +7,16 @@ import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { CustomerReviews } from "@/components/home/CustomerReviews";
 import { InstagramGallery } from "@/components/home/InstagramGallery";
 import { Newsletter } from "@/components/home/Newsletter";
-import { getBestsellers, getTrending, products } from "@/lib/data/products";
+import { getBestsellers, getProducts, getTrending } from "@/lib/supabase/queries";
 
-export default function Home() {
-  const trending = getTrending(8).length ? getTrending(8) : products.slice(0, 8);
-  const bestsellers = getBestsellers(8).length ? getBestsellers(8) : products.slice(8, 16);
+export default async function Home() {
+  const [trendingRaw, bestsellersRaw, allProducts] = await Promise.all([
+    getTrending(8),
+    getBestsellers(8),
+    getProducts(),
+  ]);
+  const trending = trendingRaw.length ? trendingRaw : allProducts.slice(0, 8);
+  const bestsellers = bestsellersRaw.length ? bestsellersRaw : allProducts.slice(8, 16);
 
   return (
     <>

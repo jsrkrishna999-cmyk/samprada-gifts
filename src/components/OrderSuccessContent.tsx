@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, PackageCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
+import { ShareButton } from "@/components/ui/ShareButton";
 import { formatINR } from "@/lib/utils";
 
 interface LastOrder {
@@ -72,6 +73,22 @@ export function OrderSuccessContent() {
             <span>Total paid</span>
             <span>{order ? formatINR(order.total) : "—"}</span>
           </div>
+        </div>
+      </div>
+
+      <div className="mt-8 w-full max-w-sm rounded-2xl border border-sandalwood-light bg-cream/60 p-5 text-center">
+        <p className="text-sm font-medium text-maroon-900">Loved shopping with us?</p>
+        <p className="mx-auto mt-1 max-w-xs text-xs text-brown-700/65">
+          Share Samprada Gifts with friends and family planning their own celebrations.
+        </p>
+        <div className="mt-4 flex justify-center">
+          <ShareButton
+            url="/"
+            title="Samprada Gifts"
+            text="I just ordered return gifts from Samprada Gifts — beautiful traditional favours for weddings, poojas and festivals."
+            label="Share Samprada Gifts"
+            variant="button"
+          />
         </div>
       </div>
 

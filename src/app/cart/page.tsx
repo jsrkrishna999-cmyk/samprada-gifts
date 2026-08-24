@@ -7,11 +7,12 @@ import { ArrowRight, Gift, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react
 import { Container, SectionHeading } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import { useCart } from "@/context/cart-context";
-import { getProductBySlug } from "@/lib/data/products";
+import { useCatalog } from "@/context/catalog-context";
 import { formatINR } from "@/lib/utils";
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, toggleGiftWrap, subtotal, originalSubtotal } = useCart();
+  const { getProductBySlug } = useCatalog();
 
   const savings = originalSubtotal - subtotal;
   const giftWrapTotal = items.filter((i) => i.giftWrap).length * 40;
@@ -44,7 +45,7 @@ export default function CartPage() {
           <AnimatePresence initial={false}>
             {items.map((item) => {
               const product = getProductBySlug(item.productSlug);
-              if (!product) return null;
+              if (!product || product.price == null) return null;
               return (
                 <motion.div
                   key={item.productSlug}

@@ -9,16 +9,12 @@ import { ProductTabs } from "@/components/product/ProductTabs";
 import { FrequentlyBoughtTogether } from "@/components/product/FrequentlyBoughtTogether";
 import { ProductGridSection } from "@/components/ProductGridSection";
 import {
-  products,
   getProductBySlug,
   getRelatedProducts,
   getFrequentlyBoughtWith,
-} from "@/lib/data/products";
-import { getCategoryBySlug } from "@/lib/data/categories";
-
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
-}
+  getCategoryBySlug,
+} from "@/lib/supabase/queries";
+import { ogImageUrl, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -26,10 +22,35 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
+  if (!product) return { title: "Product" };
+
+  const url = `${SITE_URL}/product/${product.slug}`;
+  // Prefer the tagline, but fall back to the description so a shared link is
+  // never a bare title with no context.
+  const description = product.tagline || product.description.slice(0, 160);
+  const image = ogImageUrl(product.images[0]);
+  const priceLine =
+    product.price != null ? `${product.name} — ₹${product.price}` : product.name;
+
   return {
-    title: product ? product.name : "Product",
-    description: product?.tagline,
+    title: product.name,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      siteName: SITE_NAME,
+      title: priceLine,
+      description,
+      images: [{ url: image, alt: product.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: priceLine,
+      description,
+      images: [image],
+    },
   };
 }
 
@@ -39,12 +60,14 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const category = getCategoryBySlug(product.categorySlug);
-  const related = getRelatedProducts(product, 4);
-  const fbt = getFrequentlyBoughtWith(product, 2);
+  const [category, related, fbt] = await Promise.all([
+    getCategoryBySlug(product.categorySlug),
+    getRelatedProducts(product, 4),
+    getFrequentlyBoughtWith(product, 2),
+  ]);
 
   return (
     <div className="pb-24">

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Samprada Gifts">
+  <title>Samprada Gifts — lotus mark</title>
+  <rect width="100" height="100" rx="22" fill="#7A1F38"/>
+  <g transform="translate(50 64)">
+    <!-- outer petals -->
+    <path d="M0-38C8-22 8-10 0 0-8-10-8-22 0-38Z" fill="#A5771F" transform="rotate(-72)"/>
+    <path d="M0-38C8-22 8-10 0 0-8-10-8-22 0-38Z" fill="#A5771F" transform="rotate(72)"/>
+    <!-- mid petals -->
+    <path d="M0-38C8-22 8-10 0 0-8-10-8-22 0-38Z" fill="#C9972F" transform="rotate(-36)"/>
+    <path d="M0-38C8-22 8-10 0 0-8-10-8-22 0-38Z" fill="#C9972F" transform="rotate(36)"/>
+    <!-- centre petal -->
+    <path d="M0-42C8.5-25 8.5-11 0 0-8.5-11-8.5-25 0-42Z" fill="#E3C27A"/>
+  </g>
+</svg>

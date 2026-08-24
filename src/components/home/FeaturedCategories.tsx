@@ -1,8 +1,10 @@
 import { Container, SectionHeading } from "@/components/ui/Container";
 import { CategoryCard } from "@/components/CategoryCard";
-import { categories } from "@/lib/data/categories";
+import { getCategories } from "@/lib/supabase/queries";
 
-export function FeaturedCategories() {
+export async function FeaturedCategories() {
+  const categories = await getCategories();
+
   return (
     <section className="py-20">
       <Container>

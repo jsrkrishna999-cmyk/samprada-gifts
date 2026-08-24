@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Samprada Gifts">
+  <title>Samprada Gifts — kalasham mark</title>
+  <rect width="100" height="100" rx="22" fill="#7A1F38"/>
+  <!-- mango leaves fanning from the rim -->
+  <path d="M48 45C38 44 29 38 25 29c10-2 19 3 23 11Z" fill="#A5771F"/>
+  <path d="M52 45c10-1 19-7 23-16-10-2-19 3-23 11Z" fill="#A5771F"/>
+  <!-- coconut -->
+  <circle cx="50" cy="32" r="8" fill="#C9972F"/>
+  <!-- flared rim -->
+  <path d="M33 44h34l-3.5 8h-27Z" fill="#C9972F"/>
+  <!-- pot belly -->
+  <path d="M36.5 52h27c4.5 4 7.5 10 7.5 16.5C71 77 61.6 83 50 83s-21-6-21-14.5c0-6.5 3-12.5 7.5-16.5Z" fill="#E3C27A"/>
+  <!-- belly band -->
+  <path d="M30.4 66h39.2a15 15 0 0 1-.5 5.5H30.9a15 15 0 0 1-.5-5.5Z" fill="#C9972F"/>
+</svg>

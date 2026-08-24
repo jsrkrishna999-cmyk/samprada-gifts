@@ -10,7 +10,7 @@ import { AnimatedBadge } from "@/components/ui/AnimatedBadge";
 import { useCart } from "@/context/cart-context";
 import { useWishlist } from "@/context/wishlist-context";
 import { useAuth } from "@/context/auth-context";
-import { categories } from "@/lib/data/categories";
+import { useCatalog } from "@/context/catalog-context";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -27,6 +27,7 @@ export function Header() {
   const { count } = useCart();
   const { slugs } = useWishlist();
   const { user } = useAuth();
+  const { categories } = useCatalog();
   const pathname = usePathname();
 
   return (

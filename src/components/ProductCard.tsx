@@ -4,8 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ShoppingBag, Eye } from "lucide-react";
-import type { Product } from "@/lib/types";
+import { Check, ShoppingBag, Eye, MessageCircle } from "lucide-react";
+import { isPurchasable, type Product } from "@/lib/types";
 import { RatingStars } from "./ui/RatingStars";
 import { PriceTag } from "./ui/PriceTag";
 import { Badge } from "./ui/Badge";
@@ -15,6 +15,7 @@ import { useCart } from "@/context/cart-context";
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const { addItem } = useCart();
   const [justAdded, setJustAdded] = useState(false);
+  const purchasable = isPurchasable(product);
 
   function handleQuickAdd() {
     addItem(product.slug);
@@ -53,35 +54,44 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         />
 
         <div className="absolute inset-x-3 bottom-3 flex translate-y-2 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <motion.button
-            onClick={handleQuickAdd}
-            whileTap={{ scale: 0.95 }}
-            className="relative flex flex-1 items-center justify-center gap-1.5 overflow-hidden rounded-full bg-maroon-600 px-3 py-2 text-xs font-semibold text-ivory shadow-lift hover:bg-maroon-700"
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              {justAdded ? (
-                <motion.span
-                  key="added"
-                  initial={{ y: 8, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
-                  className="flex items-center gap-1.5"
-                >
-                  <Check size={14} /> Added
-                </motion.span>
-              ) : (
-                <motion.span
-                  key="add"
-                  initial={{ y: 8, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
-                  className="flex items-center gap-1.5"
-                >
-                  <ShoppingBag size={14} /> Quick Add
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          {purchasable ? (
+            <motion.button
+              onClick={handleQuickAdd}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex flex-1 items-center justify-center gap-1.5 overflow-hidden rounded-full bg-maroon-600 px-3 py-2 text-xs font-semibold text-ivory shadow-lift hover:bg-maroon-700"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {justAdded ? (
+                  <motion.span
+                    key="added"
+                    initial={{ y: 8, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -8, opacity: 0 }}
+                    className="flex items-center gap-1.5"
+                  >
+                    <Check size={14} /> Added
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="add"
+                    initial={{ y: 8, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -8, opacity: 0 }}
+                    className="flex items-center gap-1.5"
+                  >
+                    <ShoppingBag size={14} /> Quick Add
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          ) : (
+            <Link
+              href="/contact"
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-maroon-600 px-3 py-2 text-xs font-semibold text-ivory shadow-lift hover:bg-maroon-700"
+            >
+              <MessageCircle size={14} /> Enquire
+            </Link>
+          )}
           <Link
             href={`/product/${product.slug}`}
             className="flex items-center justify-center gap-1.5 rounded-full bg-ivory px-3 py-2 text-xs font-semibold text-maroon-700 shadow-lift hover:bg-cream"
@@ -100,8 +110,13 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             {product.name}
           </h3>
         </Link>
-        <RatingStars rating={product.rating} showValue />
-        <PriceTag price={product.price} mrp={product.mrp} className="mt-1" />
+        {product.reviewCount > 0 && <RatingStars rating={product.rating} showValue />}
+        <PriceTag
+          price={product.price}
+          mrp={product.mrp}
+          status={product.status}
+          className="mt-1"
+        />
       </div>
     </motion.div>
   );

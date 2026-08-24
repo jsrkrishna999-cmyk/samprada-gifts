@@ -4,11 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ProductListing } from "@/components/shop/ProductListing";
-import { categories, getCategoryBySlug } from "@/lib/data/categories";
-
-export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
-}
+import { getCategoryBySlug } from "@/lib/supabase/queries";
+import { ogImageUrl, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -16,10 +13,30 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
+  if (!category) return { title: "Category" };
+
+  const url = `${SITE_URL}/category/${category.slug}`;
+  const image = ogImageUrl(category.image);
+
   return {
-    title: category ? category.name : "Category",
-    description: category?.description,
+    title: category.name,
+    description: category.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      siteName: SITE_NAME,
+      title: `${category.name} — Return Gifts`,
+      description: category.description,
+      images: [{ url: image, alt: category.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} — Return Gifts`,
+      description: category.description,
+      images: [image],
+    },
   };
 }
 
@@ -29,7 +46,7 @@ export default async function CategoryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) notFound();
 
   return (

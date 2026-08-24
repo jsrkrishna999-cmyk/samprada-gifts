@@ -1,0 +1,488 @@
+[
+ {
+  "code": "C001",
+  "name": "Green Leaf",
+  "slug": "green-leaf-c001",
+  "price": 3.5,
+  "file": "/products/green-leaf-c001.webp",
+  "srcW": 194,
+  "srcH": 259
+ },
+ {
+  "code": "C002",
+  "name": "Fancy Bags",
+  "slug": "fancy-bags-c002",
+  "price": 5,
+  "file": "/products/fancy-bags-c002.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C015",
+  "name": "Gold_leaf_2",
+  "slug": "gold-leaf-2-c015",
+  "price": 5,
+  "file": "/products/gold-leaf-2-c015.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C016",
+  "name": "Gold_leaf_3",
+  "slug": "gold-leaf-3-c016",
+  "price": 5,
+  "file": "/products/gold-leaf-3-c016.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C020",
+  "name": "Small jute",
+  "slug": "small-jute-c020",
+  "price": 6,
+  "file": "/products/small-jute-c020.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C003",
+  "name": "Cap basket",
+  "slug": "cap-basket-c003",
+  "price": 6,
+  "file": "/products/cap-basket-c003.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C004",
+  "name": "Small ring",
+  "slug": "small-ring-c004",
+  "price": 6,
+  "file": "/products/small-ring-c004.webp",
+  "srcW": 612,
+  "srcH": 408
+ },
+ {
+  "code": "C014",
+  "name": "Gold_Leaf",
+  "slug": "gold-leaf-c014",
+  "price": 6.5,
+  "file": "/products/gold-leaf-c014.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C018",
+  "name": "Gold_leaf_5",
+  "slug": "gold-leaf-5-c018",
+  "price": 7,
+  "file": "/products/gold-leaf-5-c018.webp",
+  "srcW": 612,
+  "srcH": 408
+ },
+ {
+  "code": "C028",
+  "name": "Gold_kalusham",
+  "slug": "gold-kalusham-c028",
+  "price": 6,
+  "file": "/products/gold-kalusham-c028.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C058",
+  "name": "rose_flower",
+  "slug": "rose-flower-c058",
+  "price": 6,
+  "file": "/products/rose-flower-c058.webp",
+  "srcW": 1063,
+  "srcH": 1048
+ },
+ {
+  "code": "C007",
+  "name": "Butterfly",
+  "slug": "butterfly-c007",
+  "price": 7,
+  "file": "/products/butterfly-c007.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C017",
+  "name": "Gold_leaf_4",
+  "slug": "gold-leaf-4-c017",
+  "price": 7,
+  "file": "/products/gold-leaf-4-c017.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C019",
+  "name": "Gold_leaf_6",
+  "slug": "gold-leaf-6-c019",
+  "price": 7,
+  "file": "/products/gold-leaf-6-c019.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C031",
+  "name": "Gold_ganesh_2",
+  "slug": "gold-ganesh-2-c031",
+  "price": 7,
+  "file": "/products/gold-ganesh-2-c031.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C036",
+  "name": "Gold_plate_Ganesh",
+  "slug": "gold-plate-ganesh-c036",
+  "price": 7,
+  "file": "/products/gold-plate-ganesh-c036.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C037",
+  "name": "Om",
+  "slug": "om-c037",
+  "price": 7,
+  "file": "/products/om-c037.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C054",
+  "name": "gold_lotus",
+  "slug": "gold-lotus-c054",
+  "price": 6.5,
+  "file": "/products/gold-lotus-c054.webp",
+  "srcW": 1448,
+  "srcH": 1315
+ },
+ {
+  "code": "C006",
+  "name": "Flute",
+  "slug": "flute-c006",
+  "price": 8.5,
+  "file": "/products/flute-c006.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C008",
+  "name": "Butterfly_2",
+  "slug": "butterfly-2-c008",
+  "price": 8,
+  "file": "/products/butterfly-2-c008.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C029",
+  "name": "COlour_Ganesh",
+  "slug": "colour-ganesh-c029",
+  "price": 8.5,
+  "file": "/products/colour-ganesh-c029.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C032",
+  "name": "Gold_ganesh_3",
+  "slug": "gold-ganesh-3-c032",
+  "price": 9,
+  "file": "/products/gold-ganesh-3-c032.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C042",
+  "name": "Bottle_Bags",
+  "slug": "bottle-bags-c042",
+  "price": 10,
+  "file": "/products/bottle-bags-c042.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C044",
+  "name": "balaGanesh1",
+  "slug": "balaganesh1-c044",
+  "price": 9,
+  "file": "/products/balaganesh1-c044.webp",
+  "srcW": 752,
+  "srcH": 1129
+ },
+ {
+  "code": "C045",
+  "name": "balaGanesh2",
+  "slug": "balaganesh2-c045",
+  "price": 9,
+  "file": "/products/balaganesh2-c045.webp",
+  "srcW": 616,
+  "srcH": 1178
+ },
+ {
+  "code": "C046",
+  "name": "ganesh",
+  "slug": "ganesh-c046",
+  "price": 9,
+  "file": "/products/ganesh-c046.webp",
+  "srcW": 864,
+  "srcH": 1195
+ },
+ {
+  "code": "C047",
+  "name": "gruhapravesham",
+  "slug": "gruhapravesham-c047",
+  "price": 9,
+  "file": "/products/gruhapravesham-c047.webp",
+  "srcW": 940,
+  "srcH": 1142
+ },
+ {
+  "code": "C048",
+  "name": "Cow",
+  "slug": "cow-c048",
+  "price": 9,
+  "file": "/products/cow-c048.webp",
+  "srcW": 1124,
+  "srcH": 1083
+ },
+ {
+  "code": "C049",
+  "name": "balakrishna",
+  "slug": "balakrishna-c049",
+  "price": 9,
+  "file": "/products/balakrishna-c049.webp",
+  "srcW": 808,
+  "srcH": 1121
+ },
+ {
+  "code": "C050",
+  "name": "elephant",
+  "slug": "elephant-c050",
+  "price": 9,
+  "file": "/products/elephant-c050.webp",
+  "srcW": 1076,
+  "srcH": 1119
+ },
+ {
+  "code": "C051",
+  "name": "matha",
+  "slug": "matha-c051",
+  "price": 9,
+  "file": "/products/matha-c051.webp",
+  "srcW": 920,
+  "srcH": 1095
+ },
+ {
+  "code": "C052",
+  "name": "lotus",
+  "slug": "lotus-c052",
+  "price": 9,
+  "file": "/products/lotus-c052.webp",
+  "srcW": 1276,
+  "srcH": 1017
+ },
+ {
+  "code": "C040",
+  "name": "Radha_Krishna",
+  "slug": "radha-krishna-c040",
+  "price": 12,
+  "file": "/products/radha-krishna-c040.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C021",
+  "name": "Big_Jute",
+  "slug": "big-jute-c021",
+  "price": 15,
+  "file": "/products/big-jute-c021.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C035",
+  "name": "Plate_Colour_ganesh",
+  "slug": "plate-colour-ganesh-c035",
+  "price": 14,
+  "file": "/products/plate-colour-ganesh-c035.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C057",
+  "name": "Thambulam_jute",
+  "slug": "thambulam-jute-c057",
+  "price": 18,
+  "file": "/products/thambulam-jute-c057.webp",
+  "srcW": 960,
+  "srcH": 870
+ },
+ {
+  "code": "C055",
+  "name": "Thambulam1",
+  "slug": "thambulam1-c055",
+  "price": 27,
+  "file": "/products/thambulam1-c055.webp",
+  "srcW": 1180,
+  "srcH": 488
+ },
+ {
+  "code": "C056",
+  "name": "Thambulam2",
+  "slug": "thambulam2-c056",
+  "price": 30,
+  "file": "/products/thambulam2-c056.webp",
+  "srcW": 1280,
+  "srcH": 606
+ },
+ {
+  "code": "C053",
+  "name": "Thambulam_blouse",
+  "slug": "thambulam-blouse-c053",
+  "price": 60,
+  "file": "/products/thambulam-blouse-c053.webp",
+  "srcW": 1280,
+  "srcH": 467
+ },
+ {
+  "code": "C005",
+  "name": "banana",
+  "slug": "banana-c005",
+  "price": null,
+  "file": "/products/banana-c005.webp",
+  "srcW": 612,
+  "srcH": 408
+ },
+ {
+  "code": "C009",
+  "name": "Laxmi Doll",
+  "slug": "laxmi-doll-c009",
+  "price": null,
+  "file": "/products/laxmi-doll-c009.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C010",
+  "name": "Doll",
+  "slug": "doll-c010",
+  "price": null,
+  "file": "/products/doll-c010.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C011",
+  "name": "Doll_2",
+  "slug": "doll-2-c011",
+  "price": null,
+  "file": "/products/doll-2-c011.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C012",
+  "name": "Cotton_Doll",
+  "slug": "cotton-doll-c012",
+  "price": null,
+  "file": "/products/cotton-doll-c012.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C023",
+  "name": "Peacock",
+  "slug": "peacock-c023",
+  "price": null,
+  "file": "/products/peacock-c023.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C024",
+  "name": "Colour_Peacock",
+  "slug": "colour-peacock-c024",
+  "price": null,
+  "file": "/products/colour-peacock-c024.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C025",
+  "name": "Peacock_2",
+  "slug": "peacock-2-c025",
+  "price": null,
+  "file": "/products/peacock-2-c025.webp",
+  "srcW": 612,
+  "srcH": 408
+ },
+ {
+  "code": "C027",
+  "name": "MDF_Kid",
+  "slug": "mdf-kid-c027",
+  "price": null,
+  "file": "/products/mdf-kid-c027.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C030",
+  "name": "Gold ganesh",
+  "slug": "gold-ganesh-c030",
+  "price": null,
+  "file": "/products/gold-ganesh-c030.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C033",
+  "name": "Stones_Ganesh",
+  "slug": "stones-ganesh-c033",
+  "price": null,
+  "file": "/products/stones-ganesh-c033.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C034",
+  "name": "Silver_PatriGanesh",
+  "slug": "silver-patriganesh-c034",
+  "price": null,
+  "file": "/products/silver-patriganesh-c034.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C038",
+  "name": "Om Plate",
+  "slug": "om-plate-c038",
+  "price": null,
+  "file": "/products/om-plate-c038.webp",
+  "srcW": 408,
+  "srcH": 612
+ },
+ {
+  "code": "C039",
+  "name": "Kalusham_bags",
+  "slug": "kalusham-bags-c039",
+  "price": null,
+  "file": "/products/kalusham-bags-c039.webp",
+  "srcW": 612,
+  "srcH": 408
+ },
+ {
+  "code": "C043",
+  "name": "White_Krishna",
+  "slug": "white-krishna-c043",
+  "price": null,
+  "file": "/products/white-krishna-c043.webp",
+  "srcW": 408,
+  "srcH": 612
+ }
+]

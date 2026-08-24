@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Samprada Gifts">
+  <title>Samprada Gifts — diya mark</title>
+  <rect width="100" height="100" rx="22" fill="#7A1F38"/>
+  <path d="M50 20c8.5 11.5 7 21.5 0 28.5-7-7-8.5-17 0-28.5Z" fill="#E3C27A"/>
+  <path d="M50 31c3.6 5.6 3 10.4 0 13.8-3-3.4-3.6-8.2 0-13.8Z" fill="#C9972F"/>
+  <path d="M20 60h60c0 12.7-13.4 21-30 21S20 72.7 20 60Z" fill="#E3C27A"/>
+  <rect x="18" y="56" width="64" height="6.5" rx="3.25" fill="#C9972F"/>
+</svg>

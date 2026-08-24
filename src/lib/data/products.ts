@@ -107,6 +107,7 @@ function build(s: Seed): Product {
     shipping: shippingDefault,
     reviews: reviewSet(seedCounter),
     budgetTier: budgetTier(s.price),
+    status: "active",
   };
 }
 

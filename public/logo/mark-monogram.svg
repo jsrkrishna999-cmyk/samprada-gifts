@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Samprada Gifts">
+  <title>Samprada Gifts — S monogram mark</title>
+  <rect width="100" height="100" rx="22" fill="#7A1F38"/>
+  <!-- scalloped medallion ring -->
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#A5771F" stroke-width="1.5"/>
+  <g fill="#C9972F">
+    <circle cx="50" cy="17" r="3"/><circle cx="73.3" cy="26.7" r="3"/>
+    <circle cx="83" cy="50" r="3"/><circle cx="73.3" cy="73.3" r="3"/>
+    <circle cx="50" cy="83" r="3"/><circle cx="26.7" cy="73.3" r="3"/>
+    <circle cx="17" cy="50" r="3"/><circle cx="26.7" cy="26.7" r="3"/>
+  </g>
+  <!-- S drawn as a stroked path so it needs no font -->
+  <path d="M62 36c-2-5-8-7.5-13-5.5s-7 8.5-1.5 11.5l11 5.5c6 3 4.5 10-1 12.5S44 71 41 65"
+        fill="none" stroke="#E3C27A" stroke-width="7" stroke-linecap="round"/>
+</svg>

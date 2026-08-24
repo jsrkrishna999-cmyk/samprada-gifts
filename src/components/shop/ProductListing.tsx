@@ -5,8 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { SlidersHorizontal, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { ProductCard } from "@/components/ProductCard";
-import { categories } from "@/lib/data/categories";
-import { products as allProducts } from "@/lib/data/products";
+import { useCatalog } from "@/context/catalog-context";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +25,7 @@ const sortOptions = [
 
 export function ProductListing({ initialCategory }: { initialCategory?: string }) {
   const searchParams = useSearchParams();
+  const { products: allProducts, categories, loading } = useCatalog();
   const [category, setCategory] = useState<string | undefined>(initialCategory);
   const [budget, setBudget] = useState<Product["budgetTier"] | undefined>(
     (searchParams.get("budget") as Product["budgetTier"]) || undefined
@@ -38,19 +38,27 @@ export function ProductListing({ initialCategory }: { initialCategory?: string }
     if (category) list = list.filter((p) => p.categorySlug === category);
     if (budget) list = list.filter((p) => p.budgetTier === budget);
 
+    // Unpriced products always sort last, whichever price direction is chosen.
+    const byPrice = (dir: 1 | -1) => (a: Product, b: Product) => {
+      if (a.price == null && b.price == null) return 0;
+      if (a.price == null) return 1;
+      if (b.price == null) return -1;
+      return (a.price - b.price) * dir;
+    };
+
     switch (sort) {
       case "price-asc":
-        list = [...list].sort((a, b) => a.price - b.price);
+        list = [...list].sort(byPrice(1));
         break;
       case "price-desc":
-        list = [...list].sort((a, b) => b.price - a.price);
+        list = [...list].sort(byPrice(-1));
         break;
       case "rating":
         list = [...list].sort((a, b) => b.rating - a.rating);
         break;
     }
     return list;
-  }, [category, budget, sort]);
+  }, [allProducts, category, budget, sort]);
 
   const FiltersPanel = (
     <div className="space-y-8">
@@ -123,7 +131,7 @@ export function ProductListing({ initialCategory }: { initialCategory?: string }
           <div>
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <p className="text-sm text-brown-700/60">
-                {filtered.length} {filtered.length === 1 ? "product" : "products"}
+                {loading ? "Loading products…" : `${filtered.length} ${filtered.length === 1 ? "product" : "products"}`}
               </p>
               <div className="flex items-center gap-2">
                 <button
@@ -146,7 +154,13 @@ export function ProductListing({ initialCategory }: { initialCategory?: string }
               </div>
             </div>
 
-            {filtered.length === 0 ? (
+            {loading ? (
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="aspect-[3/4] animate-pulse rounded-2xl bg-ivory" />
+                ))}
+              </div>
+            ) : filtered.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-sandalwood-light py-24 text-center text-brown-700/60">
                 No products match these filters yet.
               </div>

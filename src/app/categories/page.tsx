@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Container, SectionHeading } from "@/components/ui/Container";
 import { CategoryCard } from "@/components/CategoryCard";
-import { categories } from "@/lib/data/categories";
+import { getCategories } from "@/lib/supabase/queries";
 
 export const metadata: Metadata = {
   title: "Shop by Category",
   description: "Explore Samprada Gifts categories — Haldi Kumkum, Wedding, Diwali, Navaratri, and more.",
 };
 
-export default function CategoriesPage() {
+export default async function CategoriesPage() {
+  const categories = await getCategories();
+
   return (
     <div className="py-14">
       <Container>

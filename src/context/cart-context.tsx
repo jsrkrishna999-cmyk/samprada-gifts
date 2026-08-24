@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import type { CartItem } from "@/lib/types";
-import { getProductBySlug } from "@/lib/data/products";
+import { useCatalog } from "./catalog-context";
 import { useToast } from "./toast-context";
 
 const STORAGE_KEY = "sg_cart_v1";
@@ -32,6 +32,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const { show } = useToast();
+  const { getProductBySlug } = useCatalog();
 
   useEffect(() => {
     try {
@@ -64,7 +65,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         show(`${product?.name ?? "Item"} added to cart`, "cart");
       }
     },
-    [show]
+    [show, getProductBySlug]
   );
 
   const removeItem = useCallback((slug: string) => {
@@ -93,13 +94,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     let originalSubtotal = 0;
     for (const item of items) {
       const product = getProductBySlug(item.productSlug);
-      if (!product) continue;
+      // Skip unpriced products — they can't be bought, so they can't be totalled.
+      if (!product || product.price == null) continue;
       count += item.quantity;
       subtotal += product.price * item.quantity + (item.giftWrap ? 40 : 0);
-      originalSubtotal += product.mrp * item.quantity;
+      originalSubtotal += (product.mrp ?? product.price) * item.quantity;
     }
     return { count, subtotal, originalSubtotal };
-  }, [items]);
+  }, [items, getProductBySlug]);
 
   return (
     <CartContext.Provider

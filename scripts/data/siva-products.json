@@ -1,0 +1,482 @@
+[
+ {
+  "code": "SV001",
+  "name": "Rose Bud Leaf Favor",
+  "slug": "rose-bud-leaf-favor-sv001",
+  "category": "hanging-favors",
+  "file": "/products/rose-bud-leaf-favor-sv001.webp",
+  "src": "IMG-20260513-WA0057.jpg"
+ },
+ {
+  "code": "SV002",
+  "name": "Gold Leaf Rose Favor",
+  "slug": "gold-leaf-rose-favor-sv002",
+  "category": "hanging-favors",
+  "file": "/products/gold-leaf-rose-favor-sv002.webp",
+  "src": "IMG-20260513-WA0060.jpg"
+ },
+ {
+  "code": "SV003",
+  "name": "Mini Gift Bag Favor",
+  "slug": "mini-gift-bag-favor-sv003",
+  "category": "hanging-favors",
+  "file": "/products/mini-gift-bag-favor-sv003.webp",
+  "src": "IMG-20260513-WA0063.jpg"
+ },
+ {
+  "code": "SV004",
+  "name": "Gold Peacock Charm Favor",
+  "slug": "gold-peacock-charm-favor-sv004",
+  "category": "hanging-favors",
+  "file": "/products/gold-peacock-charm-favor-sv004.webp",
+  "src": "IMG-20260513-WA0065.jpg"
+ },
+ {
+  "code": "SV005",
+  "name": "Peacock Rose Hanging Favor",
+  "slug": "peacock-rose-hanging-favor-sv005",
+  "category": "hanging-favors",
+  "file": "/products/peacock-rose-hanging-favor-sv005.webp",
+  "src": "IMG-20260513-WA0066.jpg"
+ },
+ {
+  "code": "SV006",
+  "name": "Gold Butterfly Rose Favor",
+  "slug": "gold-butterfly-rose-favor-sv006",
+  "category": "hanging-favors",
+  "file": "/products/gold-butterfly-rose-favor-sv006.webp",
+  "src": "IMG-20260513-WA0067.jpg"
+ },
+ {
+  "code": "SV007",
+  "name": "Butterfly Rose Brooch Favor",
+  "slug": "butterfly-rose-brooch-favor-sv007",
+  "category": "hanging-favors",
+  "file": "/products/butterfly-rose-brooch-favor-sv007.webp",
+  "src": "IMG-20260513-WA0069.jpg"
+ },
+ {
+  "code": "SV008",
+  "name": "Pink Ganesh Rose Favor",
+  "slug": "pink-ganesh-rose-favor-sv008",
+  "category": "hanging-favors",
+  "file": "/products/pink-ganesh-rose-favor-sv008.webp",
+  "src": "IMG-20260513-WA0071.jpg"
+ },
+ {
+  "code": "SV009",
+  "name": "Gold Kalasham Rose Favor",
+  "slug": "gold-kalasham-rose-favor-sv009",
+  "category": "hanging-favors",
+  "file": "/products/gold-kalasham-rose-favor-sv009.webp",
+  "src": "IMG-20260513-WA0072.jpg"
+ },
+ {
+  "code": "SV010",
+  "name": "Filigree Butterfly Favor",
+  "slug": "filigree-butterfly-favor-sv010",
+  "category": "hanging-favors",
+  "file": "/products/filigree-butterfly-favor-sv010.webp",
+  "src": "IMG-20260513-WA0074.jpg"
+ },
+ {
+  "code": "SV011",
+  "name": "Thamboolam Tray Set",
+  "slug": "thamboolam-tray-set-sv011",
+  "category": "thamboolam-sets",
+  "file": "/products/thamboolam-tray-set-sv011.webp",
+  "src": "IMG-20260513-WA0076.jpg"
+ },
+ {
+  "code": "SV012",
+  "name": "Seemantham Mother Haldi Kumkum Favor",
+  "slug": "seemantham-mother-haldi-kumkum-favor-sv012",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/seemantham-mother-haldi-kumkum-favor-sv012.webp",
+  "src": "IMG-20260513-WA0077.jpg"
+ },
+ {
+  "code": "SV013",
+  "name": "Conch Ganesh Haldi Kumkum Favor",
+  "slug": "conch-ganesh-haldi-kumkum-favor-sv013",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/conch-ganesh-haldi-kumkum-favor-sv013.webp",
+  "src": "IMG-20260513-WA0078.jpg"
+ },
+ {
+  "code": "SV014",
+  "name": "Expecting Couple Haldi Kumkum Favor",
+  "slug": "expecting-couple-haldi-kumkum-favor-sv014",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/expecting-couple-haldi-kumkum-favor-sv014.webp",
+  "src": "IMG-20260513-WA0079.jpg"
+ },
+ {
+  "code": "SV015",
+  "name": "Lotus Ganesh Haldi Kumkum Favor",
+  "slug": "lotus-ganesh-haldi-kumkum-favor-sv015",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/lotus-ganesh-haldi-kumkum-favor-sv015.webp",
+  "src": "IMG-20260513-WA0080.jpg"
+ },
+ {
+  "code": "SV016",
+  "name": "Mother-to-Be Haldi Kumkum Favor",
+  "slug": "mother-to-be-haldi-kumkum-favor-sv016",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/mother-to-be-haldi-kumkum-favor-sv016.webp",
+  "src": "IMG-20260513-WA0081.jpg"
+ },
+ {
+  "code": "SV017",
+  "name": "Sacred Cow Haldi Kumkum Favor",
+  "slug": "sacred-cow-haldi-kumkum-favor-sv017",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/sacred-cow-haldi-kumkum-favor-sv017.webp",
+  "src": "IMG-20260513-WA0082.jpg"
+ },
+ {
+  "code": "SV018",
+  "name": "Bride Haldi Kumkum Favor",
+  "slug": "bride-haldi-kumkum-favor-sv018",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/bride-haldi-kumkum-favor-sv018.webp",
+  "src": "IMG-20260513-WA0083.jpg"
+ },
+ {
+  "code": "SV019",
+  "name": "White Ganesh Haldi Kumkum Favor",
+  "slug": "white-ganesh-haldi-kumkum-favor-sv019",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/white-ganesh-haldi-kumkum-favor-sv019.webp",
+  "src": "IMG-20260513-WA0084.jpg"
+ },
+ {
+  "code": "SV020",
+  "name": "Yashoda Krishna Haldi Kumkum Favor",
+  "slug": "yashoda-krishna-haldi-kumkum-favor-sv020",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/yashoda-krishna-haldi-kumkum-favor-sv020.webp",
+  "src": "IMG-20260513-WA0085.jpg"
+ },
+ {
+  "code": "SV021",
+  "name": "Cow and Calf Haldi Kumkum Favor",
+  "slug": "cow-and-calf-haldi-kumkum-favor-sv021",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/cow-and-calf-haldi-kumkum-favor-sv021.webp",
+  "src": "IMG-20260513-WA0088.jpg"
+ },
+ {
+  "code": "SV022",
+  "name": "Upanayanam Boy Haldi Kumkum Favor",
+  "slug": "upanayanam-boy-haldi-kumkum-favor-sv022",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/upanayanam-boy-haldi-kumkum-favor-sv022.webp",
+  "src": "IMG-20260513-WA0089.jpg"
+ },
+ {
+  "code": "SV023",
+  "name": "Balaji Haldi Kumkum Favor",
+  "slug": "balaji-haldi-kumkum-favor-sv023",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/balaji-haldi-kumkum-favor-sv023.webp",
+  "src": "IMG-20260513-WA0090.jpg"
+ },
+ {
+  "code": "SV024",
+  "name": "Traditional Couple Haldi Kumkum Favor",
+  "slug": "traditional-couple-haldi-kumkum-favor-sv024",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/traditional-couple-haldi-kumkum-favor-sv024.webp",
+  "src": "IMG-20260513-WA0091.jpg"
+ },
+ {
+  "code": "SV025",
+  "name": "Bharatanatyam Dancer Haldi Kumkum Favor",
+  "slug": "bharatanatyam-dancer-haldi-kumkum-favor-sv025",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/bharatanatyam-dancer-haldi-kumkum-favor-sv025.webp",
+  "src": "IMG-20260513-WA0092.jpg"
+ },
+ {
+  "code": "SV026",
+  "name": "Satyanarayana Swamy Haldi Kumkum Favor",
+  "slug": "satyanarayana-swamy-haldi-kumkum-favor-sv026",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/satyanarayana-swamy-haldi-kumkum-favor-sv026.webp",
+  "src": "IMG-20260513-WA0093.jpg"
+ },
+ {
+  "code": "SV027",
+  "name": "Kerala Wedding Couple Haldi Kumkum Favor",
+  "slug": "kerala-wedding-couple-haldi-kumkum-favor-sv027",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/kerala-wedding-couple-haldi-kumkum-favor-sv027.webp",
+  "src": "IMG-20260513-WA0094.jpg"
+ },
+ {
+  "code": "SV028",
+  "name": "Peacock Feather Haldi Kumkum Favor",
+  "slug": "peacock-feather-haldi-kumkum-favor-sv028",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/peacock-feather-haldi-kumkum-favor-sv028.webp",
+  "src": "IMG-20260513-WA0097.jpg"
+ },
+ {
+  "code": "SV029",
+  "name": "Krishna with Cow Haldi Kumkum Favor",
+  "slug": "krishna-with-cow-haldi-kumkum-favor-sv029",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/krishna-with-cow-haldi-kumkum-favor-sv029.webp",
+  "src": "IMG-20260513-WA0098.jpg"
+ },
+ {
+  "code": "SV030",
+  "name": "Devi Mukham Haldi Kumkum Favor",
+  "slug": "devi-mukham-haldi-kumkum-favor-sv030",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/devi-mukham-haldi-kumkum-favor-sv030.webp",
+  "src": "IMG-20260513-WA0101.jpg"
+ },
+ {
+  "code": "SV031",
+  "name": "Seemantham Blessing Haldi Kumkum Favor",
+  "slug": "seemantham-blessing-haldi-kumkum-favor-sv031",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/seemantham-blessing-haldi-kumkum-favor-sv031.webp",
+  "src": "IMG-20260513-WA0105.jpg"
+ },
+ {
+  "code": "SV032",
+  "name": "Krishna Mukham Haldi Kumkum Favor",
+  "slug": "krishna-mukham-haldi-kumkum-favor-sv032",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/krishna-mukham-haldi-kumkum-favor-sv032.webp",
+  "src": "IMG-20260513-WA0106.jpg"
+ },
+ {
+  "code": "SV033",
+  "name": "Lakshmi on Lotus Haldi Kumkum Favor",
+  "slug": "lakshmi-on-lotus-haldi-kumkum-favor-sv033",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/lakshmi-on-lotus-haldi-kumkum-favor-sv033.webp",
+  "src": "IMG-20260513-WA0120.jpg"
+ },
+ {
+  "code": "SV034",
+  "name": "Amman Face Haldi Kumkum Favor",
+  "slug": "amman-face-haldi-kumkum-favor-sv034",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/amman-face-haldi-kumkum-favor-sv034.webp",
+  "src": "IMG-20260513-WA0121.jpg"
+ },
+ {
+  "code": "SV035",
+  "name": "Wedding Couple Haldi Kumkum Favor",
+  "slug": "wedding-couple-haldi-kumkum-favor-sv035",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/wedding-couple-haldi-kumkum-favor-sv035.webp",
+  "src": "IMG-20260513-WA0123.jpg"
+ },
+ {
+  "code": "SV036",
+  "name": "Jagannath Haldi Kumkum Favor",
+  "slug": "jagannath-haldi-kumkum-favor-sv036",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/jagannath-haldi-kumkum-favor-sv036.webp",
+  "src": "IMG-20260513-WA0124.jpg"
+ },
+ {
+  "code": "SV037",
+  "name": "Folk Couple Haldi Kumkum Favor",
+  "slug": "folk-couple-haldi-kumkum-favor-sv037",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/folk-couple-haldi-kumkum-favor-sv037.webp",
+  "src": "IMG-20260513-WA0125.jpg"
+ },
+ {
+  "code": "SV038",
+  "name": "Painted Oval Haldi Kumkum Favor",
+  "slug": "painted-oval-haldi-kumkum-favor-sv038",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/painted-oval-haldi-kumkum-favor-sv038.webp",
+  "src": "IMG-20260513-WA0127.jpg"
+ },
+ {
+  "code": "SV039",
+  "name": "Cartoon Couple Haldi Kumkum Favor",
+  "slug": "cartoon-couple-haldi-kumkum-favor-sv039",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/cartoon-couple-haldi-kumkum-favor-sv039.webp",
+  "src": "IMG-20260513-WA0128.jpg"
+ },
+ {
+  "code": "SV040",
+  "name": "Royal Elephant Haldi Kumkum Favor",
+  "slug": "royal-elephant-haldi-kumkum-favor-sv040",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/royal-elephant-haldi-kumkum-favor-sv040.webp",
+  "src": "IMG-20260513-WA0129.jpg"
+ },
+ {
+  "code": "SV041",
+  "name": "Tirumala Namam Haldi Kumkum Favor",
+  "slug": "tirumala-namam-haldi-kumkum-favor-sv041",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/tirumala-namam-haldi-kumkum-favor-sv041.webp",
+  "src": "IMG-20260513-WA0130.jpg"
+ },
+ {
+  "code": "SV042",
+  "name": "Butter Krishna Haldi Kumkum Favor",
+  "slug": "butter-krishna-haldi-kumkum-favor-sv042",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/butter-krishna-haldi-kumkum-favor-sv042.webp",
+  "src": "IMG-20260513-WA0131.jpg"
+ },
+ {
+  "code": "SV043",
+  "name": "Radha Krishna Haldi Kumkum Favor",
+  "slug": "radha-krishna-haldi-kumkum-favor-sv043",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/radha-krishna-haldi-kumkum-favor-sv043.webp",
+  "src": "IMG-20260513-WA0132.jpg"
+ },
+ {
+  "code": "SV044",
+  "name": "Murugan Haldi Kumkum Favor",
+  "slug": "murugan-haldi-kumkum-favor-sv044",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/murugan-haldi-kumkum-favor-sv044.webp",
+  "src": "IMG-20260513-WA0133.jpg"
+ },
+ {
+  "code": "SV045",
+  "name": "Pink Lotus Haldi Kumkum Favor",
+  "slug": "pink-lotus-haldi-kumkum-favor-sv045",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/pink-lotus-haldi-kumkum-favor-sv045.webp",
+  "src": "IMG-20260513-WA0136.jpg"
+ },
+ {
+  "code": "SV046",
+  "name": "Modern Wedding Couple Haldi Kumkum Favor",
+  "slug": "modern-wedding-couple-haldi-kumkum-favor-sv046",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/modern-wedding-couple-haldi-kumkum-favor-sv046.webp",
+  "src": "IMG-20260513-WA0137.jpg"
+ },
+ {
+  "code": "SV047",
+  "name": "Hanuman Haldi Kumkum Favor",
+  "slug": "hanuman-haldi-kumkum-favor-sv047",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/hanuman-haldi-kumkum-favor-sv047.webp",
+  "src": "IMG-20260513-WA0138.jpg"
+ },
+ {
+  "code": "SV048",
+  "name": "Vatapatrasai Krishna Haldi Kumkum Favor",
+  "slug": "vatapatrasai-krishna-haldi-kumkum-favor-sv048",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/vatapatrasai-krishna-haldi-kumkum-favor-sv048.webp",
+  "src": "IMG-20260513-WA0140.jpg"
+ },
+ {
+  "code": "SV049",
+  "name": "Traditional Lady Haldi Kumkum Favor",
+  "slug": "traditional-lady-haldi-kumkum-favor-sv049",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/traditional-lady-haldi-kumkum-favor-sv049.webp",
+  "src": "IMG-20260513-WA0141.jpg"
+ },
+ {
+  "code": "SV050",
+  "name": "Folk Krishna Haldi Kumkum Favor",
+  "slug": "folk-krishna-haldi-kumkum-favor-sv050",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/folk-krishna-haldi-kumkum-favor-sv050.webp",
+  "src": "IMG-20260513-WA0142.jpg"
+ },
+ {
+  "code": "SV051",
+  "name": "Kalasham Haldi Kumkum Favor",
+  "slug": "kalasham-haldi-kumkum-favor-sv051",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/kalasham-haldi-kumkum-favor-sv051.webp",
+  "src": "IMG-20260513-WA0143.jpg"
+ },
+ {
+  "code": "SV052",
+  "name": "Gauri Mukham Haldi Kumkum Favor",
+  "slug": "gauri-mukham-haldi-kumkum-favor-sv052",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/gauri-mukham-haldi-kumkum-favor-sv052.webp",
+  "src": "IMG-20260513-WA0144.jpg"
+ },
+ {
+  "code": "SV053",
+  "name": "Bridal Portrait Haldi Kumkum Favor",
+  "slug": "bridal-portrait-haldi-kumkum-favor-sv053",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/bridal-portrait-haldi-kumkum-favor-sv053.webp",
+  "src": "IMG-20260513-WA0145.jpg"
+ },
+ {
+  "code": "SV054",
+  "name": "Lehenga Lady Haldi Kumkum Favor",
+  "slug": "lehenga-lady-haldi-kumkum-favor-sv054",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/lehenga-lady-haldi-kumkum-favor-sv054.webp",
+  "src": "IMG-20260513-WA0146.jpg"
+ },
+ {
+  "code": "SV055",
+  "name": "Radha Krishna Pair Haldi Kumkum Favor",
+  "slug": "radha-krishna-pair-haldi-kumkum-favor-sv055",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/radha-krishna-pair-haldi-kumkum-favor-sv055.webp",
+  "src": "IMG-20260513-WA0147.jpg"
+ },
+ {
+  "code": "SV056",
+  "name": "Baby Ganesh Haldi Kumkum Favor",
+  "slug": "baby-ganesh-haldi-kumkum-favor-sv056",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/baby-ganesh-haldi-kumkum-favor-sv056.webp",
+  "src": "IMG-20260513-WA0148.jpg"
+ },
+ {
+  "code": "SV057",
+  "name": "Seated Wedding Couple Haldi Kumkum Favor",
+  "slug": "seated-wedding-couple-haldi-kumkum-favor-sv057",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/seated-wedding-couple-haldi-kumkum-favor-sv057.webp",
+  "src": "IMG-20260513-WA0149.jpg"
+ },
+ {
+  "code": "SV058",
+  "name": "Village Lady Haldi Kumkum Favor",
+  "slug": "village-lady-haldi-kumkum-favor-sv058",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/village-lady-haldi-kumkum-favor-sv058.webp",
+  "src": "IMG-20260513-WA0150.jpg"
+ },
+ {
+  "code": "SV059",
+  "name": "Krishna with Butter Pot Haldi Kumkum Favor",
+  "slug": "krishna-with-butter-pot-haldi-kumkum-favor-sv059",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/krishna-with-butter-pot-haldi-kumkum-favor-sv059.webp",
+  "src": "IMG-20260513-WA0153.jpg"
+ },
+ {
+  "code": "SV060",
+  "name": "Purple Lotus Haldi Kumkum Favor",
+  "slug": "purple-lotus-haldi-kumkum-favor-sv060",
+  "category": "haldi-kumkum-favors",
+  "file": "/products/purple-lotus-haldi-kumkum-favor-sv060.webp",
+  "src": "IMG-20260513-WA0154.jpg"
+ }
+]

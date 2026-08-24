@@ -4,11 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { categories } from "@/lib/data/categories";
+import { useCatalog } from "@/context/catalog-context";
 import { useToast } from "@/context/toast-context";
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/icons/SocialIcons";
-
-const shopLinks = categories.slice(0, 6);
 
 const companyLinks = [
   { href: "/about", label: "About Us" },
@@ -24,6 +22,8 @@ const legalLinks = [
 export function Footer() {
   const [email, setEmail] = useState("");
   const { show } = useToast();
+  const { categories } = useCatalog();
+  const shopLinks = categories.slice(0, 6);
 
   return (
     <footer className="mt-20 bg-brown-700 text-ivory">

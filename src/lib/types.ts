@@ -23,14 +23,22 @@ export interface Review {
   verified?: boolean;
 }
 
+/**
+ * 'active'           — normal, purchasable, has a price.
+ * 'price_on_request' — real inventory awaiting a retail price; browsable only.
+ * 'coming_soon'      — real inventory not yet available to order.
+ */
+export type ProductStatus = "active" | "price_on_request" | "coming_soon";
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
   tagline: string;
   categorySlug: string;
-  price: number;
-  mrp: number;
+  /** null when the product has no retail price set yet — see `status`. */
+  price: number | null;
+  mrp: number | null;
   rating: number;
   reviewCount: number;
   images: string[];
@@ -44,7 +52,13 @@ export interface Product {
   reviews: Review[];
   relatedSlugs?: string[];
   frequentlyBoughtWith?: string[];
-  budgetTier: "under-100" | "100-300" | "300-600" | "600-plus";
+  budgetTier: "under-100" | "100-300" | "300-600" | "600-plus" | null;
+  status: ProductStatus;
+}
+
+/** True when the product can actually be added to a cart. */
+export function isPurchasable(product: Product): product is Product & { price: number } {
+  return product.status === "active" && product.price != null;
 }
 
 export interface CartItem {

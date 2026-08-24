@@ -1,70 +1,115 @@
 "use client";
 
 /**
- * Demo-only auth. There is no backend yet, so this simply stores a user
- * profile in localStorage to simulate a signed-in session. Do not treat
- * this as real authentication — it does not verify passwords or issue
- * real tokens. Replace with real JWT-backed auth when the API layer is
- * built.
+ * Real authentication via Supabase Auth. Sessions are backed by actual
+ * signed-up users with hashed passwords — not the old localStorage demo.
  */
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import type { User } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/client";
 import { useToast } from "./toast-context";
 
-const STORAGE_KEY = "sg_demo_user_v1";
-
-export interface DemoUser {
+export interface AuthUser {
+  id: string;
   name: string;
   email: string;
-  phone?: string;
+}
+
+interface AuthResult {
+  error: string | null;
+}
+
+interface SignupResult extends AuthResult {
+  needsEmailConfirmation: boolean;
 }
 
 interface AuthContextValue {
-  user: DemoUser | null;
-  login: (email: string) => void;
-  signup: (name: string, email: string) => void;
-  logout: () => void;
+  user: AuthUser | null;
+  loading: boolean;
+  login: (email: string, password: string) => Promise<AuthResult>;
+  signup: (name: string, email: string, password: string) => Promise<SignupResult>;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+function toAuthUser(user: User | null): AuthUser | null {
+  if (!user || !user.email) return null;
+  const fullName = (user.user_metadata?.full_name as string | undefined)?.trim();
+  const fallback = user.email.split("@")[0].replace(/[._]/g, " ");
+  const name = fullName || fallback.charAt(0).toUpperCase() + fallback.slice(1);
+  return { id: user.id, name, email: user.email };
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<DemoUser | null>(null);
+  const supabase = useMemo(() => createClient(), []);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [loading, setLoading] = useState(true);
   const { show } = useToast();
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setUser(JSON.parse(raw));
-    } catch {
-      /* ignore */
-    }
-  }, []);
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(toAuthUser(session?.user ?? null));
+      setLoading(false);
+    });
 
-  const persist = (u: DemoUser | null) => {
-    setUser(u);
-    if (u) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
-    else window.localStorage.removeItem(STORAGE_KEY);
-  };
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(toAuthUser(session?.user ?? null));
+    });
 
-  const login = useCallback((email: string) => {
-    const name = email.split("@")[0].replace(/[._]/g, " ");
-    persist({ name: name.charAt(0).toUpperCase() + name.slice(1), email });
-    show("Welcome back!", "info");
-  }, [show]);
+    return () => subscription.unsubscribe();
+  }, [supabase]);
 
-  const signup = useCallback((name: string, email: string) => {
-    persist({ name, email });
-    show("Account created — welcome to Samprada Gifts", "info");
-  }, [show]);
+  const login = useCallback(
+    async (email: string, password: string): Promise<AuthResult> => {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) return { error: error.message };
+      show("Welcome back!", "info");
+      return { error: null };
+    },
+    [supabase, show]
+  );
 
-  const logout = useCallback(() => {
-    persist(null);
+  const signup = useCallback(
+    async (name: string, email: string, password: string): Promise<SignupResult> => {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: name } },
+      });
+      if (error) return { error: error.message, needsEmailConfirmation: false };
+
+      // If email confirmation is required (default Supabase setting), the
+      // session is null until the user clicks the link in their inbox.
+      const needsEmailConfirmation = !data.session;
+      show(
+        needsEmailConfirmation
+          ? "Check your email to confirm your account"
+          : "Account created — welcome to Samprada Gifts",
+        "info"
+      );
+      return { error: null, needsEmailConfirmation };
+    },
+    [supabase, show]
+  );
+
+  const logout = useCallback(async () => {
+    await supabase.auth.signOut();
     show("Signed out", "info");
-  }, [show]);
+  }, [supabase, show]);
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

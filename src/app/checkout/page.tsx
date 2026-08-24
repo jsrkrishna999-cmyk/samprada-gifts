@@ -14,6 +14,8 @@ import { Container, SectionHeading } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "@/context/cart-context";
 import { useToast } from "@/context/toast-context";
+import { useAuth } from "@/context/auth-context";
+import { placeOrder } from "@/lib/orders";
 import { mockAddresses } from "@/lib/data/mock-account";
 import { formatINR } from "@/lib/utils";
 
@@ -38,7 +40,9 @@ const coupons: Record<string, number> = {
 export default function CheckoutPage() {
   const { items, subtotal, clearCart } = useCart();
   const { show } = useToast();
+  const { user } = useAuth();
   const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
   const defaultAddress = mockAddresses[0];
   const [form, setForm] = useState({
@@ -70,18 +74,39 @@ export default function CheckoutPage() {
     }
   }
 
-  function placeOrder(e: React.FormEvent) {
+  async function handlePlaceOrder(e: React.FormEvent) {
     e.preventDefault();
+    setError(null);
+
+    if (!user) {
+      router.push("/login?next=/checkout");
+      return;
+    }
+
     setPlacing(true);
-    const orderId = `SG-${Math.floor(100000 + Math.random() * 899999)}`;
-    setTimeout(() => {
-      window.sessionStorage.setItem(
-        "sg_last_order",
-        JSON.stringify({ orderId, total, payment, items: items.length })
-      );
-      clearCart();
-      router.push(`/order-success?order=${orderId}`);
-    }, 900);
+    const result = await placeOrder({
+      customer: form,
+      items,
+      paymentMethod: paymentOptions.find((p) => p.id === payment)?.label ?? payment,
+      subtotal,
+      discount,
+      deliveryFee,
+      total,
+      couponCode: appliedCoupon,
+    });
+    setPlacing(false);
+
+    if (result.error || !result.orderNumber) {
+      setError(result.error ?? "Could not place the order.");
+      return;
+    }
+
+    window.sessionStorage.setItem(
+      "sg_last_order",
+      JSON.stringify({ orderId: result.orderNumber, total, payment, items: items.length })
+    );
+    clearCart();
+    router.push(`/order-success?order=${result.orderNumber}`);
   }
 
   const disabled = items.length === 0;
@@ -92,7 +117,7 @@ export default function CheckoutPage() {
     <Container className="py-10">
       <SectionHeading eyebrow="Almost there" title="Checkout" className="mb-8" />
 
-      <form onSubmit={placeOrder} className="grid gap-10 lg:grid-cols-[1fr_380px]">
+      <form onSubmit={handlePlaceOrder} className="grid gap-10 lg:grid-cols-[1fr_380px]">
         <div className="space-y-8">
           <section className="rounded-2xl border border-sandalwood-light bg-ivory p-6">
             <h2 className="mb-5 font-serif text-lg text-maroon-900">Shipping Address</h2>
@@ -226,8 +251,25 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <Button type="submit" size="lg" disabled={disabled || placing} className="w-full">
-            {placing ? "Placing order..." : `Place Order — ${formatINR(Math.max(total, 0))}`}
+          {!user && (
+            <p className="mt-4 rounded-lg bg-cream px-3.5 py-2.5 text-xs text-brown-700/75">
+              You&rsquo;ll be asked to log in before the order is placed, so you can
+              track it afterwards.
+            </p>
+          )}
+
+          {error && (
+            <p className="mt-4 rounded-lg bg-temple-red/10 px-3.5 py-2.5 text-xs text-temple-red">
+              {error}
+            </p>
+          )}
+
+          <Button type="submit" size="lg" disabled={disabled || placing} className="mt-4 w-full">
+            {placing
+              ? "Placing order..."
+              : user
+                ? `Place Order — ${formatINR(Math.max(total, 0))}`
+                : "Log in to place order"}
           </Button>
         </div>
       </form>

@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Check, Minus, Plus, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
-import type { Product } from "@/lib/types";
+import { Check, MessageCircle, Minus, Plus, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
+import { isPurchasable, type Product } from "@/lib/types";
 import { RatingStars } from "@/components/ui/RatingStars";
 import { PriceTag } from "@/components/ui/PriceTag";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { Button, LinkButton } from "@/components/ui/Button";
 import { WishlistButton } from "@/components/ui/WishlistButton";
+import { ShareButton } from "@/components/ui/ShareButton";
 import { useCart } from "@/context/cart-context";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [stickyVisible, setStickyVisible] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
+  const purchasable = isPurchasable(product);
 
   useEffect(() => {
     const el = anchorRef.current;
@@ -39,15 +41,33 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       </h1>
 
       <div className="mt-3 flex items-center gap-3">
-        <RatingStars rating={product.rating} showValue />
-        <span className="text-sm text-brown-700/50">
-          {product.reviewCount} reviews
-        </span>
+        {product.reviewCount > 0 && (
+          <>
+            <RatingStars rating={product.rating} showValue />
+            <span className="text-sm text-brown-700/50">
+              {product.reviewCount} reviews
+            </span>
+          </>
+        )}
         {product.badges?.map((b) => <Badge key={b} kind={b} />)}
       </div>
 
-      <PriceTag price={product.price} mrp={product.mrp} size="lg" className="mt-5" />
-      <p className="mt-1 text-xs text-brown-700/50">Inclusive of all taxes</p>
+      <PriceTag
+        price={product.price}
+        mrp={product.mrp}
+        status={product.status}
+        size="lg"
+        className="mt-5"
+      />
+      {purchasable ? (
+        <p className="mt-1 text-xs text-brown-700/50">Inclusive of all taxes</p>
+      ) : (
+        <p className="mt-1 text-xs text-brown-700/50">
+          {product.status === "coming_soon"
+            ? "This piece isn't available to order yet."
+            : "Get in touch for pricing, bulk rates, and customisation."}
+        </p>
+      )}
 
       <p className="mt-6 text-brown-700/75">{product.description}</p>
 
@@ -60,29 +80,46 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
       </ul>
 
       <div ref={anchorRef} className="mt-8 flex flex-wrap items-center gap-3">
-        <div className="flex items-center rounded-full border border-sandalwood-light">
-          <button
-            onClick={() => setQty((q) => Math.max(1, q - 1))}
-            aria-label="Decrease quantity"
-            className="grid h-11 w-11 place-items-center text-maroon-600 transition-transform active:scale-90 hover:bg-cream"
-          >
-            <Minus size={15} />
-          </button>
-          <span className="w-8 text-center text-sm font-semibold">{qty}</span>
-          <button
-            onClick={() => setQty((q) => q + 1)}
-            aria-label="Increase quantity"
-            className="grid h-11 w-11 place-items-center text-maroon-600 transition-transform active:scale-90 hover:bg-cream"
-          >
-            <Plus size={15} />
-          </button>
-        </div>
+        {purchasable ? (
+          <>
+            <div className="flex items-center rounded-full border border-sandalwood-light">
+              <button
+                onClick={() => setQty((q) => Math.max(1, q - 1))}
+                aria-label="Decrease quantity"
+                className="grid h-11 w-11 place-items-center text-maroon-600 transition-transform active:scale-90 hover:bg-cream"
+              >
+                <Minus size={15} />
+              </button>
+              <span className="w-8 text-center text-sm font-semibold">{qty}</span>
+              <button
+                onClick={() => setQty((q) => q + 1)}
+                aria-label="Increase quantity"
+                className="grid h-11 w-11 place-items-center text-maroon-600 transition-transform active:scale-90 hover:bg-cream"
+              >
+                <Plus size={15} />
+              </button>
+            </div>
 
-        <Button onClick={() => addItem(product.slug, qty)} size="lg" className="flex-1 sm:flex-none">
-          <ShoppingBag size={17} /> Add to Cart
-        </Button>
+            <Button onClick={() => addItem(product.slug, qty)} size="lg" className="flex-1 sm:flex-none">
+              <ShoppingBag size={17} /> Add to Cart
+            </Button>
+          </>
+        ) : (
+          <LinkButton href="/contact" size="lg" className="flex-1 sm:flex-none">
+            <MessageCircle size={17} />
+            {product.status === "coming_soon" ? "Notify me" : "Enquire about this product"}
+          </LinkButton>
+        )}
 
         <WishlistButton slug={product.slug} size="lg" variant="outline" className="shrink-0" />
+
+        <ShareButton
+          url={`/product/${product.slug}`}
+          title={product.name}
+          text={`${product.name} — Samprada Gifts`}
+          label="Share this product"
+          className="shrink-0"
+        />
       </div>
 
       <div className="mt-6 grid gap-3 rounded-xl bg-ivory p-4 sm:grid-cols-2">
@@ -108,12 +145,23 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             </div>
             <div className="min-w-0">
               <p className="truncate text-sm font-medium text-maroon-900">{product.name}</p>
-              <PriceTag price={product.price} mrp={product.mrp} size="sm" />
+              <PriceTag
+                price={product.price}
+                mrp={product.mrp}
+                status={product.status}
+                size="sm"
+              />
             </div>
           </div>
-          <Button onClick={() => addItem(product.slug, qty)} className="shrink-0">
-            <ShoppingBag size={16} /> Add to Cart
-          </Button>
+          {purchasable ? (
+            <Button onClick={() => addItem(product.slug, qty)} className="shrink-0">
+              <ShoppingBag size={16} /> Add to Cart
+            </Button>
+          ) : (
+            <LinkButton href="/contact" className="shrink-0">
+              <MessageCircle size={16} /> Enquire
+            </LinkButton>
+          )}
         </div>
       </div>
     </div>

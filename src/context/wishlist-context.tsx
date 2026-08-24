@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { getProductBySlug } from "@/lib/data/products";
+import { useCatalog } from "./catalog-context";
 import { useToast } from "./toast-context";
 
 const STORAGE_KEY = "sg_wishlist_v1";
@@ -19,6 +19,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
   const [slugs, setSlugs] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const { show } = useToast();
+  const { getProductBySlug } = useCatalog();
 
   useEffect(() => {
     try {
@@ -49,7 +50,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
         return exists ? prev.filter((s) => s !== slug) : [...prev, slug];
       });
     },
-    [show]
+    [show, getProductBySlug]
   );
 
   const remove = useCallback((slug: string) => {

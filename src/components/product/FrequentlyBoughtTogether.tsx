@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Plus, ShoppingBag } from "lucide-react";
-import type { Product } from "@/lib/types";
+import { isPurchasable, type Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "@/context/cart-context";
@@ -16,7 +16,10 @@ export function FrequentlyBoughtTogether({
   main: Product;
   suggestions: Product[];
 }) {
-  const items = [main, ...suggestions];
+  // Bundling only makes sense when the product being viewed can itself be
+  // bought — otherwise the panel would pitch unrelated items on a page whose
+  // main product has no price.
+  const items = isPurchasable(main) ? [main, ...suggestions].filter(isPurchasable) : [];
   const [selected, setSelected] = useState<Set<string>>(new Set(items.map((p) => p.slug)));
   const { addItem } = useCart();
 
@@ -38,6 +41,8 @@ export function FrequentlyBoughtTogether({
       if (selected.has(p.slug)) addItem(p.slug, 1, true);
     });
   }
+
+  if (items.length < 2) return null;
 
   return (
     <div className="rounded-2xl border border-sandalwood-light bg-ivory p-6">
